@@ -3,8 +3,10 @@ type=shutdown
 typeNum=1
 
 while [ $run -eq 1 ]; do 
+  clear
 
   echo "Which type of shutdown do you want?"
+  echo ""
   echo "Now (1): "
   echo "At a certain time (2): "
   echo "In a given time (3): "
@@ -19,6 +21,7 @@ while [ $run -eq 1 ]; do
   elif [ $typeNum -eq 0 ]; then
     echo "Cancel shutdown (4): "
   fi
+  echo ""
 
   read shutdown
 
@@ -42,7 +45,7 @@ while [ $run -eq 1 ]; do
   fi
 
   if [ $shutdown -eq 4 ] && [ $typeNum -eq 1 ]; then
-    type=reboot
+    type="shutdown -r"
     typeNum=0
   fi
 
