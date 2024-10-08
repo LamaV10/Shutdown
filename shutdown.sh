@@ -1,7 +1,7 @@
 echo "which type of shutdown do you want?"
-echo "Now (1)"
-echo "At a certain time (2)"
-echo "In a given time (3)"
+echo "Now (1): "
+echo "At a certain time (2): "
+echo "In a given time (3): "
 
 read shutdown
 
