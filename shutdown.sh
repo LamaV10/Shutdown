@@ -12,15 +12,14 @@ while [ $run -eq 1 ]; do
   echo "In a given time (3): "
 
   if [ $typeNum -eq 1 ]; then
-    echo "Reboot (4): "
-  fi
-  
-  if [ $typeNum -eq 1 ]; then
+    echo "Reboot (4): "  
     echo "Cancel shutdown (5): "
   
   elif [ $typeNum -eq 0 ]; then
-    echo "Cancel shutdown (4): "
+    echo "Cancel reboot (4): "
+    echo "Go back to shutdown (5)"
   fi
+
   echo ""
 
   read shutdown
@@ -44,6 +43,11 @@ while [ $run -eq 1 ]; do
     run=0
   fi
 
+  if [ $shutdown -eq 4 ] && [ $typeNum -eq 0 ]; then
+    sudo $type -c
+    run=0
+  fi
+  
   if [ $shutdown -eq 4 ] && [ $typeNum -eq 1 ]; then
     type="shutdown -r"
     typeNum=0
@@ -52,6 +56,10 @@ while [ $run -eq 1 ]; do
   if [ $shutdown -eq 5 ]; then
     sudo $type -c
     run=0
+  fi
+  
+  if [ $shutdown -eq 5 ] && [ $typeNum -eq 0 ]; then
+    typeNum=0
   fi
 
 done
