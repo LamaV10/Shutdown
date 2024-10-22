@@ -11,6 +11,7 @@ while [ $run -eq 1 ]; do
 
   # displayed in every mode 
   echo "Which type of shutdown do you want?"
+  echo "Current type: $type"
   echo ""
   echo "Now (1): "
   echo "At a certain time (2): "
@@ -55,6 +56,7 @@ while [ $run -eq 1 ]; do
   # goes back to shutdown mode
   elif [ $shutdown -eq 4 ] && [ $typeNum -eq 0 ]; then
     typeNum=1
+    type="shutdown"
   # cancels shutdown or reboot
   elif [ $shutdown -eq 5 ]; then
     sudo $type -c
