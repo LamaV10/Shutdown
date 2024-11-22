@@ -10,7 +10,7 @@ while [ $run -eq 1 ]; do
   clear
 
   # displayed in every mode 
-  echo "Which type of shutdown do you want?"
+  echo "What kind of shutdown is desired?"
   echo "Current type: $type"
   echo ""
   echo "Now (1): "
