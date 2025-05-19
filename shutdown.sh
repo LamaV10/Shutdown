@@ -35,19 +35,19 @@ while [ $run -eq 1 ]; do
 
   # shutdown or reboot now 
   if [ $shutdown -eq 1 ]; then
-    sudo $type now
+    doas $type now
     run=0
   # shutdown or reboot at a given time 
   elif [ $shutdown -eq 2 ]; then
     echo "which time?"
     read time
-    sudo $type $time
+    doas $type $time
     run=0
   # shutdown or reboot in a given amount of minutes
   elif [ $shutdown -eq 3 ]; then
     echo "minutes till shutdown:"
     read time 
-    sudo $type $time
+    doas $type $time
     run=0
   # switches into reboot mode
   elif [ $shutdown -eq 4 ] && [ $typeNum -eq 1 ]; then
@@ -59,7 +59,7 @@ while [ $run -eq 1 ]; do
     type="shutdown"
   # cancels shutdown or reboot
   elif [ $shutdown -eq 5 ]; then
-    sudo $type -c
+    doas $type -c
     run=0
   fi
 
